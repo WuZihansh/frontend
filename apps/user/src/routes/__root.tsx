@@ -9,30 +9,42 @@ import { getGlobalConfig } from "@workspace/ui/services/common/common";
 import { isBrowser } from "@workspace/ui/utils/index";
 import { useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { toast } from "sonner";
 import { useGlobalStore } from "@/stores/global";
+import { loadRequiredData } from "@/utils/global-config";
 
 export const Route = createRootRouteWithContext()({
   component: () => {
-    const { common, setCommon, getUserInfo, clearUserLoading } =
+    const { clearUserLoading, common, getUserInfo, setCommon, setCommonError } =
       useGlobalStore();
     useEffect(() => {
       const initializeApp = async () => {
         try {
-          const configResponse = await getGlobalConfig();
-          if (configResponse.data?.data) {
-            setCommon(configResponse.data.data);
-          }
-          try {
-            if (getCookie("Authorization")) {
-              await getUserInfo();
-            } else {
-              clearUserLoading();
-            }
-          } catch {
-            /* empty */
-          }
+          const config = await loadRequiredData(getGlobalConfig, {
+            attempts: 3,
+            delayMs: 1000,
+          });
+          setCommon(config);
         } catch (error) {
           console.error("Failed to initialize app:", error);
+          setCommonError(
+            error instanceof Error
+              ? error.message
+              : "Unknown configuration error"
+          );
+          toast.error(
+            "Failed to load site configuration. Please refresh and try again."
+          );
+        }
+
+        try {
+          if (getCookie("Authorization")) {
+            await getUserInfo();
+          } else {
+            clearUserLoading();
+          }
+        } catch {
+          clearUserLoading();
         }
       };
 
