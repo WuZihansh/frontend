@@ -19,6 +19,12 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.13.1-dev.2](https://github.com/perfect-panel/frontend/compare/v1.13.1-dev.1...v1.13.1-dev.2) (2026-08-02)
+
+### 🐛 Bug Fixes / 问题修复
+
+* **ui:** reset table pagination on filter change ([#134](https://github.com/perfect-panel/frontend/issues/134)) ([832d5b0](https://github.com/perfect-panel/frontend/commit/832d5b0fca28fada7c7628bcce5f336ac86db7f7))
+
 ## [1.13.1-dev.1](https://github.com/perfect-panel/frontend/compare/v1.13.0...v1.13.1-dev.1) (2026-08-02)
 
 ### 🐛 Bug Fixes / 问题修复
