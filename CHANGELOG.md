@@ -19,6 +19,13 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.13.1-dev.1](https://github.com/perfect-panel/frontend/compare/v1.13.0...v1.13.1-dev.1) (2026-08-02)
+
+### 🐛 Bug Fixes / 问题修复
+
+* **user:** handle subscription availability and expiry ([dff413a](https://github.com/perfect-panel/frontend/commit/dff413a60f42ec5b93e5cfeaa5022b6318ffa44f)), closes [#131](https://github.com/perfect-panel/frontend/issues/131) [#135](https://github.com/perfect-panel/frontend/issues/135)
+* **user:** use Telegram deep link binding ([af50f83](https://github.com/perfect-panel/frontend/commit/af50f835aa3a06f0daf70c8d29cc9c09a4ba4225))
+
 ## [1.13.0](https://github.com/perfect-panel/frontend/compare/v1.12.1...v1.13.0) (2026-07-20)
 
 ### ✨ Features / 新功能
