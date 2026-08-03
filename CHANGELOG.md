@@ -27,6 +27,31 @@ This document records all notable changes to ShadCN Admin.
 
 ### 🐛 Bug Fixes / 问题修复
 
+* stop browser page translation from crashing the app ([3a1953e](https://github.com/perfect-panel/frontend/commit/3a1953ea831e9a40a0469546870202721c7fb390)), closes [#139](https://github.com/perfect-panel/frontend/issues/139) [#app](https://github.com/perfect-panel/frontend/issues/app)
+* stop rewriting the transport of a stored reality node ([9acfc9d](https://github.com/perfect-panel/frontend/commit/9acfc9d307f0965f81e35340bd735498d2ec47d2))
+
+### 📚 Documentation / 文档更新
+
+* switch install guides to postgresql and ppanel-server ([402196e](https://github.com/perfect-panel/frontend/commit/402196e8c085cbb1decba7f9cb867fbd1b6094ba))
+
+### ⚡️ Performance Improvements / 性能优化
+
+* fix blank first screen and shrink critical-path bundles ([e82c5f0](https://github.com/perfect-panel/frontend/commit/e82c5f0007e5c50a671ca8353990c087df2b058e))
+
+### 🔧 Chores / 其他变更
+
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([1513b35](https://github.com/perfect-panel/frontend/commit/1513b3574403fc7cd59ebb1fa738f5e457d16d2b))
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([f87a841](https://github.com/perfect-panel/frontend/commit/f87a841f976099806cb545483437fd76d3a3429d))
+* **release:** Release 1.14.0-dev.2 / 发布版本 1.14.0-dev.2 [skip ci] ([58be721](https://github.com/perfect-panel/frontend/commit/58be7217e24989ed70a4447f51a5b0201d6bdc1a))
+
+## [1.14.0-dev.1](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0-dev.1) (2026-08-03)
+
+### ✨ Features / 新功能
+
+* align server protocol, telegram and oauth with the panel ([4cb53a8](https://github.com/perfect-panel/frontend/commit/4cb53a87255555e1349431fe6ffa91232f05c6b9))
+
+### 🐛 Bug Fixes / 问题修复
+
 * stop rewriting the transport of a stored reality node ([9acfc9d](https://github.com/perfect-panel/frontend/commit/9acfc9d307f0965f81e35340bd735498d2ec47d2))
 
 ### 📚 Documentation / 文档更新
