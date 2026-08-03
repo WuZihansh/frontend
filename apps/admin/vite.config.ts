@@ -7,10 +7,13 @@ import viteReact from "@vitejs/plugin-react";
 import { defineConfig, loadEnv, type Plugin } from "vite";
 import { fallbackLng, i18nNamespaces, supportedLngs } from "./src/config/i18n";
 
-// Preload translation files in parallel with the JS bundle. i18next only
-// starts fetching them after the entry chunk has executed, and first render
-// blocks on them, so warming the fetch cache from index.html removes a full
-// network waterfall from the critical path.
+// Pre-paint i18n bootstrap injected into index.html. Corrects the document
+// lang before first paint (the static lang="en-US" otherwise invites browser
+// page translation for non-English users, which rewrites DOM text nodes and
+// crashes React — issue #139) and preloads translation files in parallel with
+// the JS bundle: i18next only starts fetching them after the entry chunk has
+// executed, and first render blocks on them, so warming the fetch cache from
+// index.html removes a full network waterfall from the critical path.
 function localePreloadPlugin(): Plugin {
   const script = `(() => {
   try {
@@ -22,6 +25,7 @@ function localePreloadPlugin(): Plugin {
       const candidates = navigator.languages || [navigator.language];
       lng = candidates.find((l) => supported.includes(l)) || fallback;
     }
+    document.documentElement.lang = lng;
     const langs = lng === fallback ? [lng] : [lng, fallback];
     for (const lang of langs) {
       for (const ns of namespaces) {

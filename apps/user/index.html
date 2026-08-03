@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" translate="no">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,10 @@
       content="#000000"
       media="(prefers-color-scheme: dark)"
     >
+
+    <!-- The app ships its own i18n; browser page translation rewrites DOM
+         text nodes and crashes React (see issue #139) -->
+    <meta name="google" content="notranslate">
 
     <!-- SEO -->
     <meta name="description" content="Loading...">
