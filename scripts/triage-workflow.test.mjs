@@ -9,6 +9,8 @@ const workflow = readFileSync(
 
 test("triage workflow keeps existing issue, open comment, and manual triggers", () => {
   assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /event_type:/);
+  assert.match(workflow, /dry_run:/);
   assert.match(
     workflow,
     /issues:\n\s+types: \[opened, edited, reopened, labeled\]/
@@ -49,6 +51,8 @@ test("triage workflow uses automation secrets and delivery metadata, not BRIDGE 
     workflow,
     /AUTOMATION_WEBHOOK_SECRET: \$\{\{ secrets\.AUTOMATION_WEBHOOK_SECRET \}\}/
   );
+  assert.match(workflow, /AUTOMATION_EVENT_TYPE:/);
+  assert.match(workflow, /AUTOMATION_DRY_RUN:/);
   assert.match(
     workflow,
     /GITHUB_DELIVERY: \$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/

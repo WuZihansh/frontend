@@ -9,6 +9,7 @@ const workflow = readFileSync(
 
 test("openapi adaptation workflow triggers only for main pushes that touch swagger JSON and manual reruns", () => {
   assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /dry_run:/);
   assert.match(workflow, /push:\n\s+branches: \[main\]/);
   assert.match(workflow, /paths:\n\s+- ['"]docs\/public\/swagger\/\*\.json['"]/);
   assert.doesNotMatch(workflow, /^\s+pull_request(?:_target)?:/m);
@@ -37,6 +38,7 @@ test("openapi adaptation workflow sends only automation webhook context and meta
     /AUTOMATION_WEBHOOK_SECRET: \$\{\{ secrets\.AUTOMATION_WEBHOOK_SECRET \}\}/
   );
   assert.match(workflow, /AUTOMATION_EVENT_TYPE: openapi\.adapt/);
+  assert.match(workflow, /AUTOMATION_DRY_RUN:/);
   assert.match(workflow, /GITHUB_EVENT_NAME: \$\{\{ github\.event_name \}\}/);
   assert.match(workflow, /GITHUB_EVENT_ACTION: \$\{\{ github\.event\.action \|\| '' \}\}/);
   assert.match(workflow, /GITHUB_DELIVERY: \$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/);

@@ -2,6 +2,20 @@ name: triage-automation
 
 on:
   workflow_dispatch:
+    inputs:
+      event_type:
+        description: Automation event to verify
+        required: true
+        type: choice
+        default: triage.issue
+        options:
+          - triage.issue
+          - triage.pull_request
+      dry_run:
+        description: Verify delivery without starting the automation agent
+        required: true
+        type: boolean
+        default: true
   issues:
     types: [opened, edited, reopened, labeled]
   issue_comment:
@@ -41,6 +55,8 @@ jobs:
         env:
           AUTOMATION_WEBHOOK_URL: ${{ secrets.AUTOMATION_WEBHOOK_URL }}
           AUTOMATION_WEBHOOK_SECRET: ${{ secrets.AUTOMATION_WEBHOOK_SECRET }}
+          AUTOMATION_EVENT_TYPE: ${{ github.event_name == 'workflow_dispatch' && inputs.event_type || '' }}
+          AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_EVENT_ACTION: ${{ github.event.action || '' }}
           GITHUB_DELIVERY: ${{ github.run_id }}-${{ github.run_attempt }}
