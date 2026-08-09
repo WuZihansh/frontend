@@ -60,7 +60,7 @@ async function withServer(handler) {
   const { port } = server.address();
   return {
     requests,
-    url: `http://127.0.0.1:${port}/webhook/hermes`,
+    url: `http://127.0.0.1:${port}/webhook`,
     close: () => new Promise((resolve) => server.close(resolve)),
   };
 }
@@ -147,6 +147,7 @@ test("supports explicit automation event type override for openapi adaptation wi
         AUTOMATION_WEBHOOK_URL: server.url,
         AUTOMATION_WEBHOOK_SECRET: secret,
         AUTOMATION_EVENT_TYPE: "openapi.adapt",
+        AUTOMATION_DRY_RUN: "true",
         GITHUB_EVENT_NAME: "push",
         GITHUB_EVENT_ACTION: "",
         GITHUB_DELIVERY: "delivery-openapi",
@@ -157,6 +158,7 @@ test("supports explicit automation event type override for openapi adaptation wi
     const [{ request, body }] = server.requests;
     const payload = JSON.parse(body);
     assert.equal(payload.eventType, "openapi.adapt");
+    assert.equal(payload.dryRun, true);
     assert.equal(payload.repo, "perfect-panel/frontend");
     assert.equal(payload.trigger.kind, "push");
     assert.equal(payload.trigger.eventName, "push");

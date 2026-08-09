@@ -2,6 +2,12 @@ name: openapi-adaptation
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Verify delivery without starting the automation agent
+        required: true
+        type: boolean
+        default: true
   push:
     branches: [main]
     paths:
@@ -11,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  notify-hermes:
+  notify-automation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout trusted develop automation
@@ -38,6 +44,7 @@ jobs:
           AUTOMATION_WEBHOOK_URL: ${{ secrets.AUTOMATION_WEBHOOK_URL }}
           AUTOMATION_WEBHOOK_SECRET: ${{ secrets.AUTOMATION_WEBHOOK_SECRET }}
           AUTOMATION_EVENT_TYPE: openapi.adapt
+          AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_EVENT_ACTION: ${{ github.event.action || '' }}
           GITHUB_DELIVERY: ${{ github.run_id }}-${{ github.run_attempt }}

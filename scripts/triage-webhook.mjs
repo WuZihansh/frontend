@@ -17,8 +17,8 @@ const eventType =
   explicitEventType || (isPullRequest ? "triage.pull_request" : "triage.issue");
 
 const payload = {
-  routeId: "perfect-panel-frontend-triage",
   eventType,
+  dryRun: process.env.AUTOMATION_DRY_RUN === "true",
   repo: "perfect-panel/frontend",
   source: "github-actions",
   trigger: {
