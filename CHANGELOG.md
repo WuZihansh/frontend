@@ -19,6 +19,39 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.14.0](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0) (2026-08-09)
+
+### ✨ Features / 新功能
+
+* **admin:** expose Hysteria2 client options ([9b03439](https://github.com/perfect-panel/frontend/commit/9b0343906d891159129652b4252adf529205e299))
+* align server protocol, telegram and oauth with the panel ([4cb53a8](https://github.com/perfect-panel/frontend/commit/4cb53a87255555e1349431fe6ffa91232f05c6b9))
+
+### 🐛 Bug Fixes / 问题修复
+
+* **admin:** preserve email subjects and config fields ([#142](https://github.com/perfect-panel/frontend/issues/142)) ([e0faa24](https://github.com/perfect-panel/frontend/commit/e0faa24b5560c62437cee418792dcf54dfe097b8))
+* **ci:** clean up issue automation [skip ci] ([21e7708](https://github.com/perfect-panel/frontend/commit/21e770834c5939a45e555c20418793b723cf0f37))
+* **ci:** skip triage for closed issues [skip ci] ([7f2a9ec](https://github.com/perfect-panel/frontend/commit/7f2a9ecd15376917bd8d214c39537c90afddc9e2))
+* stop browser page translation from crashing the app ([3a1953e](https://github.com/perfect-panel/frontend/commit/3a1953ea831e9a40a0469546870202721c7fb390)), closes [#139](https://github.com/perfect-panel/frontend/issues/139) [#app](https://github.com/perfect-panel/frontend/issues/app)
+* stop rewriting the transport of a stored reality node ([9acfc9d](https://github.com/perfect-panel/frontend/commit/9acfc9d307f0965f81e35340bd735498d2ec47d2))
+
+### 📚 Documentation / 文档更新
+
+* **api:** migrate Swagger reference to frontend ([889dc3d](https://github.com/perfect-panel/frontend/commit/889dc3d5a3fead0139867bb68e711ebbbf60a0a1))
+* **api:** sync Swagger from backend ([265e1c5](https://github.com/perfect-panel/frontend/commit/265e1c5fa7b1ff523c5ec3e020dfd4180365e84c))
+* **api:** sync Swagger from backend ([8223f11](https://github.com/perfect-panel/frontend/commit/8223f11674acfc5c8e9cc40ac595bc656ea9e063))
+* switch install guides to postgresql and ppanel-server ([402196e](https://github.com/perfect-panel/frontend/commit/402196e8c085cbb1decba7f9cb867fbd1b6094ba))
+
+### ⚡️ Performance Improvements / 性能优化
+
+* fix blank first screen and shrink critical-path bundles ([e82c5f0](https://github.com/perfect-panel/frontend/commit/e82c5f0007e5c50a671ca8353990c087df2b058e))
+
+### 🔧 Chores / 其他变更
+
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([c3b9c4d](https://github.com/perfect-panel/frontend/commit/c3b9c4de533cb58d6f4b9c3ced5e7751d276e484))
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([1513b35](https://github.com/perfect-panel/frontend/commit/1513b3574403fc7cd59ebb1fa738f5e457d16d2b))
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([f87a841](https://github.com/perfect-panel/frontend/commit/f87a841f976099806cb545483437fd76d3a3429d))
+* **release:** Release 1.14.0-dev.2 / 发布版本 1.14.0-dev.2 [skip ci] ([58be721](https://github.com/perfect-panel/frontend/commit/58be7217e24989ed70a4447f51a5b0201d6bdc1a))
+
 ## [1.14.0-dev.1](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0-dev.1) (2026-08-03)
 
 ### ✨ Features / 新功能
