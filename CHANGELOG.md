@@ -19,18 +19,36 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.15.0-dev.1](https://github.com/perfect-panel/frontend/compare/v1.14.0...v1.15.0-dev.1) (2026-08-09)
+
+### ✨ Features / 新功能
+
+* **subscribe:** lead the store with a renewal banner ([8aa14a4](https://github.com/perfect-panel/frontend/commit/8aa14a48d38bf61036054e3b4eb49435ad429748))
+
+### 🐛 Bug Fixes / 问题修复
+
+* **request:** surface the server's reason and stop the duplicate error toast ([877c144](https://github.com/perfect-panel/frontend/commit/877c144bb6afc3e60d0563b939fdd64812cae65f)), closes [#145](https://github.com/perfect-panel/frontend/issues/145)
+
+### 🔧 Chores / 其他变更
+
+* **automation:** migrate Swagger and webhook workflows ([40d0c14](https://github.com/perfect-panel/frontend/commit/40d0c1486ffa074bc658a4842e0e0639ca096bd4))
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([537a8a3](https://github.com/perfect-panel/frontend/commit/537a8a34fb1ed6a8120f2af0a36a7fbab74a6ee4))
+* sync main into develop ([892459f](https://github.com/perfect-panel/frontend/commit/892459fae23c08c9feea98441e75c1c238b2f96b))
+
 ## [1.14.0](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0) (2026-08-09)
 
 ### ✨ Features / 新功能
 
 * **admin:** expose Hysteria2 client options ([9b03439](https://github.com/perfect-panel/frontend/commit/9b0343906d891159129652b4252adf529205e299))
 * align server protocol, telegram and oauth with the panel ([4cb53a8](https://github.com/perfect-panel/frontend/commit/4cb53a87255555e1349431fe6ffa91232f05c6b9))
+* **subscribe:** lead the store with a renewal banner ([8aa14a4](https://github.com/perfect-panel/frontend/commit/8aa14a48d38bf61036054e3b4eb49435ad429748))
 
 ### 🐛 Bug Fixes / 问题修复
 
 * **admin:** preserve email subjects and config fields ([#142](https://github.com/perfect-panel/frontend/issues/142)) ([e0faa24](https://github.com/perfect-panel/frontend/commit/e0faa24b5560c62437cee418792dcf54dfe097b8))
 * **ci:** clean up issue automation [skip ci] ([21e7708](https://github.com/perfect-panel/frontend/commit/21e770834c5939a45e555c20418793b723cf0f37))
 * **ci:** skip triage for closed issues [skip ci] ([7f2a9ec](https://github.com/perfect-panel/frontend/commit/7f2a9ecd15376917bd8d214c39537c90afddc9e2))
+* **request:** surface the server's reason and stop the duplicate error toast ([877c144](https://github.com/perfect-panel/frontend/commit/877c144bb6afc3e60d0563b939fdd64812cae65f)), closes [#145](https://github.com/perfect-panel/frontend/issues/145)
 * stop browser page translation from crashing the app ([3a1953e](https://github.com/perfect-panel/frontend/commit/3a1953ea831e9a40a0469546870202721c7fb390)), closes [#139](https://github.com/perfect-panel/frontend/issues/139) [#app](https://github.com/perfect-panel/frontend/issues/app)
 * stop rewriting the transport of a stored reality node ([9acfc9d](https://github.com/perfect-panel/frontend/commit/9acfc9d307f0965f81e35340bd735498d2ec47d2))
 
