@@ -19,6 +19,22 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.15.0-dev.1](https://github.com/perfect-panel/frontend/compare/v1.14.0...v1.15.0-dev.1) (2026-08-09)
+
+### ✨ Features / 新功能
+
+* **subscribe:** lead the store with a renewal banner ([8aa14a4](https://github.com/perfect-panel/frontend/commit/8aa14a48d38bf61036054e3b4eb49435ad429748))
+
+### 🐛 Bug Fixes / 问题修复
+
+* **request:** surface the server's reason and stop the duplicate error toast ([877c144](https://github.com/perfect-panel/frontend/commit/877c144bb6afc3e60d0563b939fdd64812cae65f)), closes [#145](https://github.com/perfect-panel/frontend/issues/145)
+
+### 🔧 Chores / 其他变更
+
+* **automation:** migrate Swagger and webhook workflows ([40d0c14](https://github.com/perfect-panel/frontend/commit/40d0c1486ffa074bc658a4842e0e0639ca096bd4))
+* **release:** Release 1.14.0-dev.1 / 发布版本 1.14.0-dev.1 [skip ci] ([537a8a3](https://github.com/perfect-panel/frontend/commit/537a8a34fb1ed6a8120f2af0a36a7fbab74a6ee4))
+* sync main into develop ([892459f](https://github.com/perfect-panel/frontend/commit/892459fae23c08c9feea98441e75c1c238b2f96b))
+
 ## [1.14.0](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0) (2026-08-09)
 
 ### ✨ Features / 新功能
