@@ -19,7 +19,7 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
-## [1.14.0-dev.1](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0-dev.1) (2026-08-08)
+## [1.14.0](https://github.com/perfect-panel/frontend/compare/v1.13.1...v1.14.0) (2026-08-09)
 
 ### ✨ Features / 新功能
 
@@ -30,6 +30,7 @@ This document records all notable changes to ShadCN Admin.
 ### 🐛 Bug Fixes / 问题修复
 
 * **admin:** preserve email subjects and config fields ([#142](https://github.com/perfect-panel/frontend/issues/142)) ([e0faa24](https://github.com/perfect-panel/frontend/commit/e0faa24b5560c62437cee418792dcf54dfe097b8))
+* **ci:** clean up issue automation [skip ci] ([21e7708](https://github.com/perfect-panel/frontend/commit/21e770834c5939a45e555c20418793b723cf0f37))
 * **ci:** skip triage for closed issues [skip ci] ([7f2a9ec](https://github.com/perfect-panel/frontend/commit/7f2a9ecd15376917bd8d214c39537c90afddc9e2))
 * **request:** surface the server's reason and stop the duplicate error toast ([877c144](https://github.com/perfect-panel/frontend/commit/877c144bb6afc3e60d0563b939fdd64812cae65f)), closes [#145](https://github.com/perfect-panel/frontend/issues/145)
 * stop browser page translation from crashing the app ([3a1953e](https://github.com/perfect-panel/frontend/commit/3a1953ea831e9a40a0469546870202721c7fb390)), closes [#139](https://github.com/perfect-panel/frontend/issues/139) [#app](https://github.com/perfect-panel/frontend/issues/app)
@@ -37,6 +38,9 @@ This document records all notable changes to ShadCN Admin.
 
 ### 📚 Documentation / 文档更新
 
+* **api:** migrate Swagger reference to frontend ([889dc3d](https://github.com/perfect-panel/frontend/commit/889dc3d5a3fead0139867bb68e711ebbbf60a0a1))
+* **api:** sync Swagger from backend ([265e1c5](https://github.com/perfect-panel/frontend/commit/265e1c5fa7b1ff523c5ec3e020dfd4180365e84c))
+* **api:** sync Swagger from backend ([8223f11](https://github.com/perfect-panel/frontend/commit/8223f11674acfc5c8e9cc40ac595bc656ea9e063))
 * switch install guides to postgresql and ppanel-server ([402196e](https://github.com/perfect-panel/frontend/commit/402196e8c085cbb1decba7f9cb867fbd1b6094ba))
 
 ### ⚡️ Performance Improvements / 性能优化
