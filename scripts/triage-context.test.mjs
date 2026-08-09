@@ -127,6 +127,7 @@ test("keeps issue context behavior and filters PR-shaped issues from openIssues"
       url: "https://github.com/perfect-panel/frontend/issues/7",
       labels: ["bug"],
       user: "alice",
+      isPullRequest: false,
     });
     assert.deepEqual(report.openIssues, [
       {
@@ -139,6 +140,45 @@ test("keeps issue context behavior and filters PR-shaped issues from openIssues"
     ]);
     assert.equal("pullRequest" in report.trigger, false);
     assert.equal("openPullRequests" in report, false);
+  } finally {
+    await fixture.close();
+  }
+});
+
+test("marks issue comments attached to pull requests for PR routing", async () => {
+  const event = {
+    action: "created",
+    issue: {
+      number: 42,
+      title: "Improve billing",
+      body: "PR body",
+      html_url: "https://github.com/perfect-panel/frontend/pull/42",
+      labels: [],
+      user: { login: "carol" },
+      pull_request: {},
+    },
+  };
+  const fixture = await withGithubFixture({
+    "/repos/perfect-panel/frontend/issues?state=open&per_page=50": [],
+  });
+  const { workspace, eventPath } = makeWorkspace(event);
+
+  try {
+    const result = await runContext({
+      cwd: workspace,
+      env: {
+        TRIAGE_TOKEN: "token",
+        GITHUB_API_BASE_URL: fixture.baseUrl,
+        GITHUB_EVENT_NAME: "issue_comment",
+        GITHUB_EVENT_PATH: eventPath,
+        GITHUB_REPOSITORY: "perfect-panel/frontend",
+      },
+    });
+    assert.equal(result.code, 0, result.stderr);
+    const report = JSON.parse(
+      readFileSync(join(workspace, ".automation", "context.json"), "utf8")
+    );
+    assert.equal(report.trigger.issue.isPullRequest, true);
   } finally {
     await fixture.close();
   }

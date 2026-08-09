@@ -133,6 +133,31 @@ test("sends pull_request_target events as triage.pull_request", async () => {
   }
 });
 
+test("routes issue comments attached to pull requests as triage.pull_request", async () => {
+  const server = await withServer((_record, response) => {
+    response.writeHead(202);
+    response.end("accepted");
+  });
+
+  try {
+    const result = await runSender({
+      cwd: makeWorkspace({ trigger: { issue: { isPullRequest: true } } }),
+      env: {
+        AUTOMATION_WEBHOOK_URL: server.url,
+        AUTOMATION_WEBHOOK_SECRET: "test-secret",
+        GITHUB_EVENT_NAME: "issue_comment",
+        GITHUB_EVENT_ACTION: "created",
+      },
+    });
+    assert.equal(result.code, 0, result.stderr);
+    const payload = JSON.parse(server.requests[0].body);
+    assert.equal(payload.eventType, "triage.pull_request");
+    assert.equal(payload.trigger.kind, "pull_request");
+  } finally {
+    await server.close();
+  }
+});
+
 test("supports explicit automation event type override for openapi adaptation without changing GitHub headers", async () => {
   const secret = "test-secret";
   const server = await withServer((_record, response) => {
@@ -159,6 +184,7 @@ test("supports explicit automation event type override for openapi adaptation wi
     const payload = JSON.parse(body);
     assert.equal(payload.eventType, "openapi.adapt");
     assert.equal(payload.dryRun, true);
+    assert.equal(payload.context.test, true);
     assert.equal(payload.repo, "perfect-panel/frontend");
     assert.equal(payload.trigger.kind, "push");
     assert.equal(payload.trigger.eventName, "push");

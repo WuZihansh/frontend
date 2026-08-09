@@ -73,6 +73,7 @@ const report = {
           url: event.issue.html_url,
           labels: labelsFor(event.issue),
           user: event.issue.user?.login,
+          isPullRequest: Boolean(event.issue.pull_request),
         }
       : null,
     ...(isPullRequestEvent && {

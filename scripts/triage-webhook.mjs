@@ -11,14 +11,18 @@ if (!(webhookUrl && webhookSecret)) {
 
 const context = JSON.parse(readFileSync(".automation/context.json", "utf8"));
 const githubEventName = process.env.GITHUB_EVENT_NAME || "unknown";
-const isPullRequest = githubEventName === "pull_request_target";
+const isPullRequest =
+  githubEventName === "pull_request_target" ||
+  context.trigger?.issue?.isPullRequest === true;
 const explicitEventType = process.env.AUTOMATION_EVENT_TYPE;
 const eventType =
   explicitEventType || (isPullRequest ? "triage.pull_request" : "triage.issue");
+const dryRun = process.env.AUTOMATION_DRY_RUN === "true";
+const payloadContext = dryRun ? { ...context, test: true } : context;
 
 const payload = {
   eventType,
-  dryRun: process.env.AUTOMATION_DRY_RUN === "true",
+  dryRun,
   repo: "perfect-panel/frontend",
   source: "github-actions",
   trigger: {
@@ -26,7 +30,7 @@ const payload = {
     eventName: githubEventName,
     eventAction: process.env.GITHUB_EVENT_ACTION || "",
   },
-  context,
+  context: payloadContext,
 };
 
 const rawBody = JSON.stringify(payload);
